@@ -2,10 +2,10 @@ import math
 import random
 import numpy as np
 
-# Game Class for Tic-Tac-Toe
+# Game Class for Tic-Tac-Toe Implementation
 class TicTacToe:
     def __init__(self):
-        self.board = [" " for _ in range(9)]  # Initialize grid
+        self.board = [" " for _ in range(9)]  # Initialize grid for playing the game
         self.current_winner = None  # Track the winner of the game
     
     # Display the game grid
