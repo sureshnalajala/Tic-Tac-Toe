@@ -1,7 +1,7 @@
 import random
 import numpy as np
 
-# Tic Tac Toe Class like last game
+# Tic Tac Toe Implementation
 class TicTacToe:
     def __init__(self):
         self.board = [' ' for _ in range(9)]
@@ -70,13 +70,13 @@ def play(game, x_player, o_player, print_game=True):
 
             if game.current_winner:
                 if print_game:
-                    print(letter + ' wins!')
+                    print(letter + ' wins!!!')
                 return letter
 
             letter = 'O' if letter == 'X' else 'X'
 
     if print_game:
-        print("It's a tie!")
+        print("It's a tie!!!")
     return None
 
 # Player classes (Human, Random for training and QLearning)
@@ -99,14 +99,14 @@ class HumanPlayer(Player):
         valid_square = False
         val = None
         while not valid_square:
-            square = str(int(input(self.letter + "'s turn. Input move (1-9): ")) - 1)
+            square = str(int(input(self.letter + "'s turn. Pick a spot (1-9): ")) - 1)
             try:
                 val = int(square)
                 if val not in game.available_moves():
                     raise ValueError
                 valid_square = True
             except ValueError:
-                print("Invalid Move, Please try again with a different number.")
+                print("Invalid input. Please select an available spot.")
         return val
 
 class RandomAgent(Player):
@@ -199,7 +199,7 @@ def play(game, x_player, o_player, print_game=True, track_metrics=False):
                         x_player.total_rewards -= 1
 
                 if print_game:
-                    print(letter + ' wins!')
+                    print(letter + ' wins!!!')
                 return letter
 
             letter = 'O' if letter == 'X' else 'X'
@@ -209,7 +209,7 @@ def play(game, x_player, o_player, print_game=True, track_metrics=False):
         o_player.draw_count += 1
 
     if print_game:
-        print("It's a tie!")
+        print("It's a tie!!!")
     return None
 
 
@@ -263,20 +263,22 @@ print(f"Win Rate: {100 * win_count / num_episodes:.2f}%")
 print(f"Draw Rate: {100 * draw_count / num_episodes:.2f}%")
 
 
-# Playing Loop
-while True:
-    t = TicTacToe()
-    human_agent = HumanPlayer('X')
-    q_agent = QLearningAgent('O')  # Reset agent
-    winner = play(t, human_agent, q_agent)
+# Run the Program
+if __name__ == "__main__":
+    print("Welcome to Tic Tac Toe!!!")
+    while True:
+        t = TicTacToe()
+        human_agent = HumanPlayer('X')
+        q_agent = QLearningAgent('O')  # Reset agent
+        winner = play(t, human_agent, q_agent)
 
-    if winner == 'X':
-        print("You win!")
-    elif winner == 'O':
-        print("You lose!")
-    else:
-        print("It's a tie!")
+        if winner == 'X':
+            print("You win!!!")
+        elif winner == 'O':
+            print("You lose!!!")
+        else:
+            print("It's a tie!!!")
 
-    play_again = input("Do you wish play again? (y/n): ")
-    if play_again.lower() != 'y':
-        break
+        play_again = input("Play again? (y/n): ")
+        if play_again.lower() != 'y':
+            break

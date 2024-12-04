@@ -2,13 +2,13 @@ import math
 import random
 import numpy as np
 
-# TicTacToe Game Class
+# Game Class for Tic-Tac-Toe
 class TicTacToe:
     def __init__(self):
-        self.board = [" " for _ in range(9)]  # Empty board
-        self.current_winner = None  # Track winner
+        self.board = [" " for _ in range(9)]  # Initialize grid
+        self.current_winner = None  # Track the winner of the game
     
-    # Print out the current board state
+    # Display the game grid
     def print_board(self):
         print("-------------")
         for i in range(3):
@@ -18,11 +18,11 @@ class TicTacToe:
             print(row)
             print("-------------")
 
-    # Get empty cells where no player has placed their mark
+    # Available moves (empty cells)
     def get_empty_cells(self):
         return [i for i in range(len(self.board)) if self.board[i] == " "]
 
-    # Check for a win or a tie
+    # Determine game outcome
     def check_winner(self):
         # Check rows
         for i in range(0, 9, 3):
@@ -43,7 +43,7 @@ class TicTacToe:
         # No winner yet
         return None
 
-    # Evaluate the game state
+    # Assess state of the grid
     def evaluate(self, ai_player, human_player):
         winner = self.check_winner()
         if winner == ai_player:
@@ -53,7 +53,7 @@ class TicTacToe:
         else:
             return 0
 
-# Minimax algorithm
+# Recursive Minimax logic
 def minimax(board, depth, is_maximizing, ai_player, human_player):
     score = game.evaluate(ai_player, human_player)
     if score != 0:
@@ -137,7 +137,7 @@ def get_player_move(board, player):
         except ValueError:
             print("Invalid input. Please try again.")
 
-# Initialize Game
+# Game Execution
 def play_game():
     board = game.board
     game.print_board()
@@ -147,7 +147,7 @@ def play_game():
 
     while True:
         if current_player == ai_player:
-            print("AI's turn.")
+            print("AI is making its move...")
             cell = ai_move(board, ai_player, human_player, AI)
         else:
             cell = get_player_move(board, human_player)
@@ -158,9 +158,9 @@ def play_game():
         winner = game.check_winner()
         if winner is not None:
             if winner == "Tie":
-                print("It's a tie!")
+                print("It's a tie!!!")
             else:
-                print(f"{winner} won the game!")
+                print(f"{winner} won the game!!!")
             break
         
         # Switch players
@@ -170,9 +170,8 @@ def play_game():
             current_player = ai_player
 
 # Choose AI Method (Minimax or Alpha-Beta Pruning)
-print("=================================================")
-print("TIC-TAC-TOE using MINIMAX with ALPHA-BETA Pruning")
-print("=================================================")
-AI = int(input("Choose method (using number): \n1. MiniMax\n2. Alpha Beta Pruning\n"))
-game = TicTacToe()
-play_game()
+if __name__ == "__main__":
+    print("Tic-Tac-Toe AI: Choose your Strategy")
+    AI = int(input("Input your choice (use only the numbers): \n1. MiniMax\n2. Alpha Beta Pruning\n"))
+    game = TicTacToe()
+    play_game()
