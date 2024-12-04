@@ -20,7 +20,7 @@ The game makes the move after the agent chooses its move and gives it the index 
 
 # Achievements:
 
-Q-Learning Metrics
+Q-Learning Metrics <br />
 •	Win Rate: Demonstrates the agent's ability to improve over time. <br />
 •	Mistakes per Turn: Decreases as the agent learns optimal strategies. <br />
 •	Rewards: Tracks cumulative improvement.
