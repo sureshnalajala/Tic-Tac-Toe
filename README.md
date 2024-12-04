@@ -24,3 +24,11 @@ Q-Learning Metrics <br />
 •	Win Rate: Demonstrates the agent's ability to improve over time. <br />
 •	Mistakes per Turn: Decreases as the agent learns optimal strategies. <br />
 •	Rewards: Tracks cumulative improvement.
+
+# Execution of the Code:
+
+git clone https://github.com/sureshnalajala/Tic-Tac-Toe.git <br />
+cd Tic-Tac-Toe <br />
+You can do "ls" for listing the files in Tic-Tac-Toe directory. <br />
+python Qlearning.py <br />
+python Minimax.py
