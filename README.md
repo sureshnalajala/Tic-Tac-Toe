@@ -84,8 +84,8 @@ can then be used by the agent to play the game as best it can.
 **_• git clone https://github.com/sureshnalajala/Tic-Tac-Toe.git_** <br />
 **_• cd Tic-Tac-Toe_** <br />
 **_• You can do "ls" for listing the files in Tic-Tac-Toe directory._** <br />
-**_• python ./Qlearning.py_** <br />
-**_• python ./Minimax.py_** <br />
+**_• python .\Qlearning.py_** <br />
+**_• python .\Minimax.py_** <br />
 
 
 
