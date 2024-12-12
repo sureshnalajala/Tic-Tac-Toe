@@ -81,11 +81,11 @@ can then be used by the agent to play the game as best it can.
 • **Alpha-Beta Pruning**: Prunes unnecessary branches, significantly improving speed. <br />
 
 # Execution of the Code:
-**_• git clone https://github.com/sureshnalajala/Tic-Tac-Toe.git_**
-**_• cd Tic-Tac-Toe_**
-**_• You can do "ls" for listing the files in Tic-Tac-Toe directory._**
-**_• python ./Qlearning.py_**
-**_• python ./Minimax.py_**
+**_• git clone https://github.com/sureshnalajala/Tic-Tac-Toe.git_** <br />
+**_• cd Tic-Tac-Toe_** <br />
+**_• You can do "ls" for listing the files in Tic-Tac-Toe directory._** <br />
+**_• python ./Qlearning.py_** <br />
+**_• python ./Minimax.py_** <br />
 
 
 
