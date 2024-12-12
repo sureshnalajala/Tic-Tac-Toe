@@ -31,3 +31,61 @@ agent can be trained to play Tic Tac Toe using the reinforcement learning algori
 Each state-action pair is given a reward value, which is then updated in response
 to environmental feedback. These values are then used by the agent to choose its next
 course of action. 
+
+# Implementation:
+We created a functional game by implementing minimax/alphabeta pruning using a
+TicTacToe class, which contained all the TicTacToe functionalities. After evaluating the
+optimal move using the "minimax" and "alphabeta" algorithms, we returned it as the AI
+move. To choose the best course of action where AI prevails, we utilize the evaluation
+function.
+Since it competes with a random agent and modifies values prior to play, the Q-Learning
+approach is a little diƯerent. The same TicTacToe class is used in QLearning.py, but a Player
+class is also created to define human, random, and Q-Learning agents, respectively. The
+player's next move is returned via the get_move(game) method of the Player class, of which
+the Q-Learning agent is implemented as a subclass. The Q-Learning agent's get_move
+method is responsible for selecting the agent's subsequent move based on the game's
+current state and the agent's Q-Table. Every row in the Q-Table corresponds to a game
+state, and every column denotes a possible action the agent could perform. The predicted
+reward that the agent will obtain if it performs a specific action in a specific condition is
+represented by the entries of the Q-Table. The Q-Learning agent competes against a
+Random Agent during training, which selects moves at random. The rewards the agent
+obtains for each action it takes are used to update its Q-Table as it interacts with the
+environment. 
+
+The get_move method of the Q-Learning agent first determines whether the agent should
+explore, or exploit based on the value of epsilon, the exploration parameter. The agent
+selects a random move from the game's possible moves if a random number between 0
+and 1 is less than epsilon. If not, the agent chooses the move that has the highest Q-Value
+for the game's present state. The agent adds a new row to the table for the current state and
+sets all entries to 0 if the current state is not already in the agent's Q-Table. The agent
+chooses the action with the greatest Q-Value for the current condition if it is already in the
+agent's Q-Table.
+The game makes the move after the agent chooses its move and gives it the index of the
+selected square. The reward of the move is then determined by the game and is 0 if the
+game is still in progress, 1 if the agent wins, and -1 if the agent loses. In the event that the
+game is over, the Q-Learning agent uses the update rule of the Q-Learning algorithm to
+update its Q-Table according to the reward it earned for each action it performed
+throughout the game.The Q-Learning agent should have a Q-Table at the conclusion of the
+training phase that shows the best action-selection strategy for each game state. This table
+can then be used by the agent to play the game as best it can. 
+
+# Achievements:
+**_1. Q-Learning Metrics:_** <br />
+• **Win Rate and Draw Rate**: Measure overall performance. <br />
+• **Total Mistakes per Turn**: Measures suboptimal moves. <br />
+• **Average Accumulated Rewards**: Tracks how much the agent improves over time. <br />
+
+**_2. Minimax and Alpha-Beta Pruning:_** <br />
+• **Optimal Moves**: Both methods guarantee optimal play but differ in computational efficiency: <br />
+• **Minimax**: Evaluates the entire game tree. <br />
+• **Alpha-Beta Pruning**: Prunes unnecessary branches, significantly improving speed. <br />
+
+# Execution of the Code:
+**_• git clone https://github.com/sureshnalajala/Tic-Tac-Toe.git_**
+**_• cd Tic-Tac-Toe_**
+**_• You can do "ls" for listing the files in Tic-Tac-Toe directory._**
+**_• python ./Qlearning.py_**
+**_• python ./Minimax.py_**
+
+
+
